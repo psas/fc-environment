@@ -1,0 +1,5 @@
+ACTION=="add", SUBSYSTEM=="i2c-dev", ATTR{name}=="SMBus I801 adapter at 0400", RUN+="/usr/local/sbin/gpio-attach"
+ACTION=="add", SUBSYSTEM=="i2c", ATTR{name}=="pca9555", RUN+="/usr/local/sbin/gpio-pin-init"
+
+SUBSYSTEM=="tty", ATTRS{idVendor}=="0403", ATTRS{idProduct}=="6001", \
+  SYMLINK="usbserial", RUN+="/bin/stty -F $tempnode 115200 raw -echo"

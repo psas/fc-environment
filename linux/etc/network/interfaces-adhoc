@@ -1,0 +1,25 @@
+# This file describes the network interfaces available on your system
+# and how to activate them. For more information, see interfaces(5).
+
+# The loopback network interface
+auto lo
+iface lo inet loopback
+
+# The primary network interface
+allow-hotplug eth0
+iface eth0 inet dhcp
+	address 172.16.0.1
+	netmask 255.255.255.0
+
+
+# Static IP and DHCP for wireless interface
+allow-hotplug wlan0
+iface wlan0 inet dhcp
+#	wireless-key 0102030507
+#	wireless-essid tova
+#	wireless-mode managed
+#	wireless-essid psas
+#	wireless-mode ad-hoc
+	address 172.17.0.1
+	netmask 255.255.255.0
+	wpa-conf /etc/wpa_supplicant.conf
