@@ -18,13 +18,12 @@ PROJECTPATH="/root/logs/"
 
 start_service () {
 	mkdir -p /var/run/$NAME
-	cd $PROJECTPATH
 	echo "Starting PSAS FC service"
-  	start-stop-daemon --start --pidfile /var/run/$NAME/$NAME.pid --exec $DAEMON --background --make-pidfile
+  	start-stop-daemon --start --background --nicelevel -19 --make-pidfile --pidfile /var/run/$NAME/$NAME.pid --startas $PROJECTPATH --exec $DAEMON 
 }
 
 stop_service () {
-	echo "stopping robot service"
+	echo "stopping PSAS FC service"
 	start-stop-daemon --stop --quiet --pidfile /var/run/$NAME/$NAME.pid
 }
 
