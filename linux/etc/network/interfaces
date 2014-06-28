@@ -8,9 +8,9 @@ iface lo inet loopback
 # The primary network interface
 allow-hotplug eth0
 iface eth0 inet static
-	address 10.0.0.10
+	address 10.10.10.10
 	netmask 255.255.255.0
-
+	gateway 10.10.10.1
 
 # Static IP and DHCP for wireless interface. To use, run
 # ifup wlan0=managed
@@ -22,7 +22,7 @@ iface managed inet dhcp
 allow-hotplug wlan0
 iface wlan0 inet static
 	wireless-mode ad-hoc
-	wireless-essid psas
-	wireless-channel 36
+	wireless-essid KF7RAS
+	wireless-channel 1
 	address 172.17.0.1
 	netmask 255.255.255.0
